@@ -68,7 +68,6 @@ class SubMenu extends Component {
         })
         .then(res => res.json())
         .then((data) => {
-            console.log('setting state', data);
             this.setState({
                 listMembers: data
             })

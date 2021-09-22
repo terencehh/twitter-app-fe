@@ -33,7 +33,6 @@ class App extends Component {
     })
     .then(res => res.json())
     .then((data) => {
-      console.log('follower data: ', data)
       this.setState({
         followerData: data.users
       })
