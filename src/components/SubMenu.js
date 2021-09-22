@@ -59,7 +59,7 @@ class SubMenu extends Component {
 
     componentDidMount() {
         this._isMounted = true;
-        fetch(`http://localhost:3001/members/${this.state.twitterList.id_str}`, {
+        fetch(`https://twitter-app-back-end.herokuapp.com/members/${this.state.twitterList.id_str}`, {
             method: 'GET',
             mode: 'cors', // no-cors, *cors, same-origin
             headers: {
