@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
 
-    const { selectedUserName, selecterUserId, followerData } = this.state;
+    const { selectedUserName, followerData } = this.state;
 
     return (
       <div>
