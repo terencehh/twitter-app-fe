@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   getRecentFollowers(twitterId) {
-    fetch(`http://localhost:3001/follower-recent-follows/${twitterId}`, {
+    fetch(`https://twitter-app-back-end.herokuapp.com/follower-recent-follows/${twitterId}`, {
       method: 'GET',
       mode: 'cors', // no-cors, *cors, same-origin
       headers: {

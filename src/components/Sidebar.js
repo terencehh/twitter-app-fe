@@ -55,7 +55,7 @@ class Sidebar extends Component {
     showSidebar = () => this.setState({sidebar: !this.state.sidebar})
     
     componentDidMount() {
-        fetch(`http://localhost:3001/collections/tereykiller`, {
+        fetch(`https://twitter-app-back-end.herokuapp.com/collections/tereykiller`, {
           method: 'GET',
           mode: 'cors', // no-cors, *cors, same-origin
           headers: {
