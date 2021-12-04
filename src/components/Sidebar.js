@@ -12,6 +12,8 @@ const Nav = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: sticky;
+    top: 0;
 `;
 
 const NavIcon = styled.div`
@@ -52,7 +54,13 @@ class Sidebar extends Component {
         this.onUserSelected = this.onUserSelected.bind(this);
     }
     
-    showSidebar = () => this.setState({sidebar: !this.state.sidebar})
+    showSidebar = (boolean) =>  {
+        if(boolean === undefined) {
+            this.setState({sidebar: !this.state.sidebar})
+        } else {
+            this.setState(boolean);
+        }
+    }
     
     componentDidMount() {
         fetch(`https://twitter-app-back-end.herokuapp.com/collections/tereykiller`, {
@@ -82,13 +90,13 @@ class Sidebar extends Component {
         <IconContext.Provider value={{ color: '#fff' }}>
             <Nav>
                 <NavIcon>
-                    <FaIcons.FaBars style={{cursor: 'pointer'}} onClick={this.showSidebar} />
+                    <FaIcons.FaBars style={{cursor: 'pointer'}} onClick={() => this.showSidebar()} />
                 </NavIcon>
             </Nav>
             <SidebarNav sidebar={this.state.sidebar}>
                 <SidebarWrap>
                 <NavIcon>
-                    <AiIcons.AiOutlineClose style={{cursor: 'pointer'}} onClick={this.showSidebar} />
+                    <AiIcons.AiOutlineClose style={{cursor: 'pointer'}} onClick={() => this.showSidebar()} />
                 </NavIcon>
                 {lists.map((twitterList, key) => {
                 return <SubMenu twitterList={twitterList} key={key} onUserSelected={this.onUserSelected}/>

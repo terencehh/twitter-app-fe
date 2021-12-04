@@ -2,6 +2,7 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import React, {Component} from 'react';
 import MaterialTable from 'material-table';
+import * as FaIcons from 'react-icons/fa'
 
 class App extends Component {
   
@@ -40,6 +41,10 @@ class App extends Component {
     .catch(console.log)
   }
 
+  openTwitterTab(twitterHandle) {
+    window.open(`https://twitter.com/${twitterHandle}`);
+  }
+
   render() {
 
     const { selectedUserName, followerData } = this.state;
@@ -52,6 +57,7 @@ class App extends Component {
             style={{zIndex: -1}}
             title={selectedUserName ? `${selectedUserName}'s Recent Follows` : 'Please Select a User'} 
             columns={[
+              { title: 'Twitter URL', field: 'url' },
               { title: 'Twitter Handle', field: 'screen_name' },
               { title: 'Created Date', field: 'created_at' },
               { title: 'Follower Count', field: 'followers_count' },
@@ -59,6 +65,7 @@ class App extends Component {
             data={followerData.length > 0 ? 
               followerData.map(data => { 
                 return {
+                url: `https://twitter.com/${data.screen_name}`,
                 screen_name: data.screen_name,
                 created_at: data.created_at,
                 followers_count: data.followers_count
