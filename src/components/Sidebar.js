@@ -63,7 +63,7 @@ class Sidebar extends Component {
     }
     
     componentDidMount() {
-        fetch(`https://twitter-app-back-end.herokuapp.com/collections/tereykiller`, {
+        fetch(`https://twitter-app-back-end.herokuapp.com/collections/SOLDumbMoney`, {
           method: 'GET',
           mode: 'cors', // no-cors, *cors, same-origin
           headers: {
